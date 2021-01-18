@@ -1,0 +1,10 @@
+# Python
+__pycache__
+
+# Environments
+.venv
+venv/
+venv.bak/
+
+# Pycharm
+.idea
