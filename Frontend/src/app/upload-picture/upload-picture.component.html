@@ -1,3 +1,38 @@
-<div class="container">
-  <p>upload-picture works!</p>
+<div class="container form-container">
+  <h1>Upload picture</h1>
+  <form (ngSubmit)="onSubmit()" #uploadPictureForm="ngForm">
+    <div>
+      <label for="title">Title</label>
+      <input type="text" class="text-input" id="title"
+             required maxlength="48"
+             [(ngModel)]="pictureToUpload.title" name="title"
+             #title="ngModel">
+      <div [hidden]="title.valid || title.pristine"
+           class="alert">
+        Title is required
+      </div>
+    </div>
+
+    <div>
+      <label for="description">Description</label>
+      <input type="text" class="text-input" id="description"
+             [(ngModel)]="pictureToUpload.description" name="description">
+    </div>
+
+    <div>
+      <label for="file">File</label>
+      <input hidden type="file" #file id="file" required name="file" (change)="onFileChange($event)">
+      <button class="choose-file-button" (click)="file.click()">Choose file</button>
+      <div [hidden]="pictureFileValid"
+           class="alert">
+        Picture file with '.jpg' or '.png' extension is required
+      </div>
+      <img alt="Picture preview" [src]="pictureToUpload.file" [hidden]="!pictureFileValid" class="image-preview">
+    </div>
+
+    <button type="submit" class="submit-button" [disabled]="!uploadPictureForm.form.valid || !pictureFileValid">
+      Submit
+    </button>
+
+  </form>
 </div>
