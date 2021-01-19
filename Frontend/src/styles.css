@@ -3,6 +3,34 @@
   font-family: Arial, Helvetica, sans-serif;
 }
 
+img {
+  border: 1px solid #ccc;
+}
+
+button {
+  font-size: 14px;
+  font-weight: 400;
+  text-align: center;
+  padding: 6px 12px;
+  display: block;
+  color: black;
+  border: 1px solid #2B945C;
+  background-color: #64ED51;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #2B945C;
+  color: white;
+}
+
+button[disabled] {
+  cursor: not-allowed;
+  box-shadow: none;
+  opacity: .7;
+}
+
 .container {
   margin-top: 65px;
 }
