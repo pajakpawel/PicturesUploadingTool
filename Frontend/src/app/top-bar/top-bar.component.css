@@ -1,0 +1,36 @@
+.top-bar-container {
+  overflow: hidden;
+  background-color: #266141;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+}
+
+.top-bar-container h1 {
+  float: left;
+  color: #4EC786;
+  font-size: 23px;
+  -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-color: #5CEDA0;
+  margin-left: 20px;
+  margin-right: 20px;
+}
+
+a:link, a:visited {
+  background-color: #64ED51;
+  color: black;
+  border: 2px solid #2B945C;
+  border-radius: 4px;
+  padding: 10px 15px;
+  text-align: center;
+  text-decoration: none;
+  /*display: inline-block;*/
+  float: left;
+  margin: 10px 5px;
+}
+
+a:hover, a:active {
+  background-color: #2B945C;
+  color: white;
+}
