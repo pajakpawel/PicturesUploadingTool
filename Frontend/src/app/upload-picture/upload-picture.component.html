@@ -22,7 +22,7 @@
     <div>
       <label for="file">File</label>
       <input hidden type="file" #file id="file" required name="file" (change)="onFileChange($event)">
-      <button class="choose-file-button" (click)="file.click()">Choose file</button>
+      <button type="button" class="choose-file-button" (click)="file.click()">Choose file</button>
       <div [hidden]="pictureFileValid"
            class="alert">
         Picture file with '.jpg' or '.png' extension is required
