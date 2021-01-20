@@ -1,1 +1,9 @@
-<p>notification-modal works!</p>
+<ng-container *ngIf="displayNotificationModal | async as display">
+  <section [class.open]="display === true"
+           (click)="closeNotificationModal()">
+    <div (click)="$event.stopPropagation()">
+      <p>{{notificationMessage | async}}</p>
+      <button (click)="closeNotificationModal()"> Close </button>
+    </div>
+  </section>
+</ng-container>
