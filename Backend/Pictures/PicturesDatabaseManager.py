@@ -10,9 +10,7 @@ class PicturesDatabaseManager:
     def insert_picture(self, title, description, file):
         try:
             pictures_collection = self.database.pictures
-            inserted_picture = pictures_collection.insert_one({"title": title,
-                                                               "description": description,
-                                                               "file": file})
-            return inserted_picture.inserted_id
+            pictures_collection.insert_one({"title": title, "description": description, "file": file})
+            return True
         except Exception:
             return False
