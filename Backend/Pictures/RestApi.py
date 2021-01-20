@@ -1,4 +1,5 @@
 from flask import request, Response
+from bson.json_util import dumps
 
 from . import pictures
 from .PicturesDatabaseManager import PicturesDatabaseManager
@@ -24,8 +25,8 @@ def upload_picture():
                                                     request_json['file'])
 
     if insert_result:
-        response = Response("Picture uploaded", status=201)
+        response = Response(dumps("Picture uploaded"), status=201)
     else:
-        response = Response("Picture could not be uploaded", status=500)
+        response = Response(dumps("Picture could not be uploaded"), status=500)
 
     return response
