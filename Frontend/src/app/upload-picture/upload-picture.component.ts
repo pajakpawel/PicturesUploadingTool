@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 import { PictureToUploadModel } from '../../picture-structures/picture-to-upload-model';
+import { PictureHttpService } from '../services/picture-http/picture-http.service';
 
 @Component({
   selector: 'app-upload-picture',
@@ -12,7 +13,7 @@ export class UploadPictureComponent implements OnInit {
   pictureFileValid = false;
   fileFromUser = new File([], 'file');
 
-  constructor() {
+  constructor(private pictureHttpService: PictureHttpService) {
   }
 
   ngOnInit(): void {
@@ -47,7 +48,7 @@ export class UploadPictureComponent implements OnInit {
   }
 
   onSubmit(): void {
-    console.log('Upload picture onSubmit');
+    this.pictureHttpService.uploadPicture(this.pictureToUpload);
     this.restoreDefaultValues();
   }
 
