@@ -27,3 +27,17 @@ img {
   margin-right: auto;
   margin-left: auto;
 }
+
+.delete {
+  margin: auto;
+  color: black;
+  background-color: #b85c5c;
+  border-color: #ae4c4c;
+
+}
+
+.delete:hover {
+  color: white;
+  background-color: #9d4444;
+  border-color: #843939;
+}

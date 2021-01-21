@@ -42,3 +42,16 @@ def get_all_pictures():
     except pymongo_errors.ServerSelectionTimeoutError:
         response = Response(dumps("Database response timeout"), status=500)
         return response
+
+
+@pictures.route('/pictures/<picture_id>', methods=['DELETE'])
+def delete_picture(picture_id):
+    try:
+        if database_manager.delete_picture(picture_id):
+            response = Response(dumps("Picture deleted"), status=204)
+        else:
+            response = Response(dumps("Picture could not be deleted"), status=500)
+    except pymongo_errors.ServerSelectionTimeoutError:
+        response = Response(dumps("Picture could not be deleted"), status=500)
+
+    return response
