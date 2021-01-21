@@ -14,3 +14,6 @@ class PicturesDatabaseManager:
             return True
         except Exception:
             return False
+
+    def get_all_pictures(self):
+        return self.database.pictures.find()
