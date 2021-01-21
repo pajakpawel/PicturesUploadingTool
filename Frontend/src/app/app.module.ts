@@ -9,6 +9,7 @@ import { TopBarComponent } from './top-bar/top-bar.component';
 import { PicturesListComponent } from './pictures-list/pictures-list.component';
 import { UploadPictureComponent } from './upload-picture/upload-picture.component';
 import { NotificationModalComponent } from './notification-modal/notification-modal.component';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { NotificationModalComponent } from './notification-modal/notification-mo
     TopBarComponent,
     PicturesListComponent,
     UploadPictureComponent,
-    NotificationModalComponent
+    NotificationModalComponent,
+    PageNotFoundComponent
   ],
   imports: [
     BrowserModule,
