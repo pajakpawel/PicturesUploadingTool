@@ -3,6 +3,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 import { PictureToUploadModel } from '../../../picture-structures/picture-to-upload-model';
 import { AppConstants } from '../../constants';
+import { NotificationModalManagementService } from '../notification-modal-management/notification-modal-management.service';
 
 @Injectable({
   providedIn: 'root'
@@ -13,7 +14,8 @@ export class PictureHttpService {
   };
 
   constructor(
-    private httpClient: HttpClient
+    private httpClient: HttpClient,
+    private notificationModalManagement: NotificationModalManagementService
   ) {
   }
 
@@ -21,10 +23,10 @@ export class PictureHttpService {
     this.httpClient.post(AppConstants.apiUploadPictureURL, picture, this.httpOptions)
       .subscribe({
         next: value => {
-          console.log('Picture uploaded');
+          this.notificationModalManagement.showNotificationModal('Picture uploaded. Thank you!');
         },
         error: err => {
-          console.log('Picture could not be uploaded');
+          this.notificationModalManagement.showNotificationModal('Picture could not be uploaded');
         }
       });
   }
