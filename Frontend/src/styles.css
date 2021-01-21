@@ -3,6 +3,10 @@
   font-family: Arial, Helvetica, sans-serif;
 }
 
+body {
+  background-color: #b7d0c7;
+}
+
 img {
   border: 1px solid #ccc;
 }
