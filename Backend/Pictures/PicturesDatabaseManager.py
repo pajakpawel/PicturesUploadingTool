@@ -1,4 +1,5 @@
 from pymongo import MongoClient
+from bson import ObjectId
 import Constants
 
 
@@ -17,3 +18,9 @@ class PicturesDatabaseManager:
 
     def get_all_pictures(self):
         return self.database.pictures.find()
+
+    def delete_picture(self, picture_id):
+        delete_result = self.database.pictures.delete_one({"_id": ObjectId(picture_id)})
+        if delete_result.deleted_count == 1:
+            return True
+        return False
