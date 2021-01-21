@@ -42,4 +42,18 @@ export class PictureHttpService {
     });
     return picturesListObservable;
   }
+
+    deletePicture(picture: PictureFromServerModel): void {
+    const pictureId = picture._id.$oid;
+
+    this.httpClient.delete(AppConstants.apiDeletePictureURL + pictureId, this.httpOptions)
+      .subscribe({
+        next: value => {
+          this.notificationModalManagement.showNotificationModal('Picture deleted.');
+        },
+        error: err => {
+          this.notificationModalManagement.showNotificationModal('Picture could not be deleted.');
+        }
+      });
+  }
 }
