@@ -1,4 +1,5 @@
 from flask import request, Response
+from pymongo import errors as pymongo_errors
 from bson.json_util import dumps
 
 from . import pictures
@@ -30,3 +31,14 @@ def upload_picture():
         response = Response(dumps("Picture could not be uploaded"), status=500)
 
     return response
+
+
+@pictures.route('/pictures', methods=['GET'])
+def get_all_pictures():
+    try:
+        pictures_cursor = database_manager.get_all_pictures()
+        response = dumps(pictures_cursor)
+        return response
+    except pymongo_errors.ServerSelectionTimeoutError:
+        response = Response(dumps("Database response timeout"), status=500)
+        return response

@@ -1,9 +1,11 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { Observable } from 'rxjs';
 
 import { PictureToUploadModel } from '../../../picture-structures/picture-to-upload-model';
 import { AppConstants } from '../../constants';
 import { NotificationModalManagementService } from '../notification-modal-management/notification-modal-management.service';
+import { PictureFromServerModel } from '../../../picture-structures/picture-from-server-model';
 
 @Injectable({
   providedIn: 'root'
@@ -29,5 +31,15 @@ export class PictureHttpService {
           this.notificationModalManagement.showNotificationModal('Picture could not be uploaded');
         }
       });
+  }
+
+  getAllPictures(): Observable<PictureFromServerModel[]> {
+    const picturesListObservable = this.httpClient.get<PictureFromServerModel[]>(AppConstants.apiGetAllPicturesURL);
+    picturesListObservable.subscribe({
+      error: err => {
+        this.notificationModalManagement.showNotificationModal('Pictures could not be fetched from server');
+      }
+    });
+    return picturesListObservable;
   }
 }
