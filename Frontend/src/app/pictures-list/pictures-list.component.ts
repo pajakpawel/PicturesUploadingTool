@@ -21,4 +21,8 @@ export class PicturesListComponent implements OnInit {
     this.pictureHttpService.getAllPictures().subscribe(pictures => this.picturesList = pictures);
   }
 
+  deletePicture(picture: PictureFromServerModel): void {
+    this.picturesList = this.picturesList.filter(list => list !== picture);
+    this.pictureHttpService.deletePicture(picture);
+  }
 }
