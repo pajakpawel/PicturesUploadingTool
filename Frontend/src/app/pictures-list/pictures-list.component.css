@@ -1,0 +1,29 @@
+.picture {
+  height: 500px;
+  width: 425px;
+  margin: 0.5%;
+  background-color: #3FA16C;
+  float: left;
+  border-radius: 8px;
+}
+
+.picture .title {
+  margin: 15px;
+  text-align: center;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.picture .description {
+  overflow-y: auto;
+  margin: 5px;
+  height: 20%;
+}
+
+img {
+  width: 75%;
+  height: 60%;
+  display: block;
+  margin-right: auto;
+  margin-left: auto;
+}
