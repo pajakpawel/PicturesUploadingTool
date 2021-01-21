@@ -1,3 +1,9 @@
 <div class="container">
-  <p>pictures-list works!</p>
+  <div *ngFor="let picture of picturesList" class="picture">
+
+    <p class="title">{{picture.title}}</p>
+    <img alt="Picture image" [src]="picture.file">
+    <div class="description">{{picture.description}}</div>
+
+  </div>
 </div>
