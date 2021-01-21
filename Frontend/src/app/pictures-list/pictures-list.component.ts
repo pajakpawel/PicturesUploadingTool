@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { PictureFromServerModel } from '../../picture-structures/picture-from-server-model';
+import { PictureHttpService } from '../services/picture-http/picture-http.service';
 
 @Component({
   selector: 'app-pictures-list',
@@ -7,9 +9,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PicturesListComponent implements OnInit {
 
-  constructor() { }
+  picturesList: PictureFromServerModel[] = [];
+
+  constructor(private pictureHttpService: PictureHttpService) { }
 
   ngOnInit(): void {
+    this.getPicturesList();
+  }
+
+  getPicturesList(): void {
+    this.pictureHttpService.getAllPictures().subscribe(pictures => this.picturesList = pictures);
   }
 
 }
