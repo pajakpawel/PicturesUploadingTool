@@ -4,7 +4,10 @@
     <p class="title">{{picture.title}}</p>
     <img alt="Picture image" [src]="picture.file">
     <div class="description">{{picture.description}}</div>
-    <button class="delete" (click)="deletePicture(picture)">Delete</button>
+    <div class="buttons-container">
+      <button class="delete" (click)="deletePicture(picture)">Delete</button>
+      <button class="download" (click)="downloadPicture(picture)">Download</button>
+    </div>
 
   </div>
 </div>
