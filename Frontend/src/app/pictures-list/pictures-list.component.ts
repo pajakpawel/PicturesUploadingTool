@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { PictureFromServerModel } from '../../picture-structures/picture-from-server-model';
 import { PictureHttpService } from '../services/picture-http/picture-http.service';
+import { saveAs } from 'file-saver';
 
 @Component({
   selector: 'app-pictures-list',
@@ -24,5 +25,9 @@ export class PicturesListComponent implements OnInit {
   deletePicture(picture: PictureFromServerModel): void {
     this.picturesList = this.picturesList.filter(list => list !== picture);
     this.pictureHttpService.deletePicture(picture);
+  }
+
+  downloadPicture(picture: PictureFromServerModel): void {
+    saveAs(picture.file, picture.title);
   }
 }
