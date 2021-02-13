@@ -1,12 +1,9 @@
-# PicturesUploadingTool*
+# PicturesUploadingTool
 This project is a basic pictures uploading tool.
 It was created using following technologies:
 - Angular for frontend service
 - Python with Flask framework for backend server 
 - MongoDB for data storage
-
-*You are currently on a development branch. This branch is under maintenance. 
-Every new feature is going to be merged into this branch primarily.
 
 ## Prerequisites
 To properly run this project you will need to have specified development environment.
